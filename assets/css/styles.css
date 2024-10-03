@@ -1,0 +1,232 @@
+:root {
+  --color-text: #000000;
+  --color-subtitle: rgba(0, 0, 0, 0.2);
+  --color-background-1: #f7f7f7;
+  --color-background-2: #ffffff;
+  --color-primary: #ffffff;
+  --color-secondary: #ee2211;
+  --color-secondary-dark: #900;
+  --wave-image: url("../img/onda-light.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #ffffff;
+    --color-subtitle: rgba(255, 255, 255, 0.2);
+    --color-background-1: #111111;
+    --color-background-2: #000000;
+    --color-primary: #292929;
+    --color-secondary: #ee2211;
+    --wave-image: url("../img/onda-dark.svg");
+  }
+}
+
+body {
+  display: grid;
+  margin: 0;
+  min-height: 100vh;
+  align-items: end;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background-1);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  color: var(--color-text);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+header {
+  max-width: 100%;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  fill: var(--color-text);
+}
+
+.menu {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 60px 0 30px;
+}
+
+.menu button {
+  padding: 15px 30px;
+  font-weight: 500;
+  background-color: var(--color-background-2);
+  border: .1rem solid var(--color-background-2);
+  border-radius: 4px;
+}
+
+.menu button:hover {
+  border: .1rem solid var(--color-secondary);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.content article, .bicycle {
+  min-height: 300px;
+}
+
+.content .light {
+  display: grid;
+  grid-auto-rows: min-content;
+  padding: 20px;
+  background-color: var(--color-background-2);
+  font-size: 1.1rem;
+}
+
+.content .light button {
+  padding: 15px 30px;
+  color: #fff;
+  background-color:  var(--color-secondary);
+  border: none;
+  border-radius: 4px;
+}
+
+.content .light button:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.primary {
+  position: relative;
+  text-align: right;
+  align-content: center;
+  justify-content: end;
+  align-items: center;
+  justify-items: end;
+}
+
+.primary::after {
+  content: '';
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  top: 30px;
+  right: -40px;
+  background-color: var(--color-secondary);;
+}
+
+.primary h2 {
+  font-size: 1.8rem;
+}
+
+.bicycle {
+  object-fit: cover;
+  object-position: center;
+}
+
+.content .grayish {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  max-width: 500px;
+  padding: 20px;
+  text-align: right;
+  font-size: 2.3rem;
+  color: var(--color-subtitle);
+  background-image: var(--wave-image);
+}
+
+.information {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto auto;
+  grid-auto-rows: min-content;
+  gap: 10px;
+  padding: 20px 20px 20px 0;
+  border-left: var(--color-background-2) solid .3rem;
+}
+
+.information:nth-child(odd) {
+  border-left-color: var(--color-background-1);
+  background-color: var(--color-background-1);
+}
+
+.information:hover {
+  border-left-color: var(--color-secondary);
+}
+
+.information p {
+  margin:  0;
+}
+
+.information p:nth-child(2)  {  
+  font-weight: 600;
+}
+
+.information .icone {
+  grid-row: 1 / -1;
+  justify-self: end;
+  padding-right: 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: var(--color-background-2);
+  padding: 40px 0;
+}
+
+
+@media (max-width: 1000px) { 
+  .content { 
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo {
+    margin-top: 60px;
+  }
+
+  .content { 
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .primary {
+    text-align: center;
+    place-content: center;
+    place-items: center;
+  }
+
+  .primary::after  {
+    display: none;
+  }
+
+  footer {
+    margin-top: 60px;
+    font-size: 1rem;
+  }
+
+  .content .grayish {
+    text-align: center;
+    word-break: break-word;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 450px) { 
+  .content .grayish {
+    font-size: 1.5rem;
+  }
+}
